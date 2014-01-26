@@ -1,4 +1,4 @@
-tf2server Cookbook
+TF2server Cookbook
 ============
 Installs Team Fortress 2 Dedicated Server.    
 
