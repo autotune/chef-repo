@@ -20,4 +20,4 @@ Contributing
 License and Authors
 -------------------
 Authors: Brian Adams
-License: MIT License
+License: GPLV3 License (http://choosealicense.com/licenses/gpl-v3)
