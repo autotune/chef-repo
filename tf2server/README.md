@@ -1,4 +1,4 @@
-tf2 Cookbook
+tf2server Cookbook
 ============
 Installs Team Fortress 2 Dedicated Server.    
 
@@ -13,11 +13,8 @@ Attributes
 ----------
 ### server.cfg
 default["tf2server"]["hostname"] = "Your_Servers_Name"
-
 default["tf2server"]["password"] = "Your_Rcon_Password"
-
 default["tf2server"]["sv_contact"] = "admin@yourdomain.com"
-
 default["tf2server"]["mp_timelimit"] = "30"
 
 Usage
