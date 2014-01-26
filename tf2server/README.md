@@ -1,8 +1,8 @@
-TF2server Cookbook
+TF2 Server Cookbook
 ============
 Installs Team Fortress 2 Dedicated Server.    
 
-CentOS WARNING: In order to simplify things, this will back up and replace your current iptables rules at /etc/sysconfig/iptables-tf2.bac rather than actually add to them. It is recommended you install this as part of a fresh installation on a server in your own LAN or at a VPS/Cloud provider. In Ubuntu, this uses UFW to dynamically add to the rules. 
+CentOS WARNING: In order to simplify things, this will back up and replace your current iptables rules at /etc/sysconfig/iptables-tf2.bac rather than add to them. It is recommended you install this as part of a fresh installation on a server in your own LAN or at a VPS/Cloud provider. In Ubuntu, this recipe uses UFW to dynamically add to the rules. 
 
 Requirements
 ------------
@@ -30,4 +30,5 @@ Contributing
 License and Authors
 -------------------
 Authors: Brian Adams
+
 License: GPLV3 (http://choosealicense.com/licenses/gpl-v3) 
