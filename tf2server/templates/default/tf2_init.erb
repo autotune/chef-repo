@@ -19,7 +19,7 @@ script
 end script
 
 post-stop script
-    pkill srcds_run
+    fuser -k /home/tf2server/hlserver/tf2/srcds_run
     while [ -n "$(pidof srcds_linux)" ]; do
         sleep 1
     done
