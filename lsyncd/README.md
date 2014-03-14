@@ -2,6 +2,8 @@ lsyncd Cookbook
 ===============
 This is a cookbook for lsyncd which makes the installation and setup for one remote server by default a snap on both Ubuntu and CentOS. When done, Lsync will be up and running with test directories in /var/tmp/source and /var/tmp/dest for testing purposes. Make sure you configure the localhost just like you would a remote server, adding a private RSA key and then 127.0.0.1 to the authorized_keys2 file if you want to test locally first as lsyncd will not start unless a server has been succesfully added.  
 
+e.g.
+This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
@@ -20,4 +22,3 @@ Contributing
 License and Authors
 -------------------
 Authors: Brian Adams
-License: GPLV3 License (http://choosealicense.com/licenses/gpl-v3)

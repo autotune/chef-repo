@@ -2,7 +2,7 @@
 default["lsyncd"]["conf"] = "/etc/lsyncd.lua"
 default["lsyncd"]["logfile"] = "/var/log/lsyncd.log"
 default["lsyncd"]["statusfile"] = "/var/log/lsyncd/lsyncd-status"
-default["lsyncd"]["statusinterval"] = 2
+default["lsyncd"]["statusinterval"] = 5
 # sync
 default["lsyncd"]["source1"] = "/var/tmp/source"
 default["lsyncd"]["targethost1"] = "127.0.0.1"

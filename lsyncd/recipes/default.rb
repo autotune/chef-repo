@@ -17,6 +17,7 @@ when "rhel"
   variables({
 	:conf => node["lsyncd"]["conf"] 
   })
+  mode "0755"
   end
 
   # create logging dir for lsyncd
@@ -39,7 +40,7 @@ when "rhel"
     action :create
   end
 
-  directory "/var/tmp/source" do
+  directory "/var/tmp/dest" do
     owner "root"
     group "root"
     action :create
@@ -114,11 +115,6 @@ when "debian"
       group "root"
       action :create
    end
-
-#   service "lsyncd" do
-#     provider Chef::Provider::Service::Upstart
-#     action [ :enable, :start]
-#   end
      
 end
 
