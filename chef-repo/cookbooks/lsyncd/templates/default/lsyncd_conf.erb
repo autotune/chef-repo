@@ -1,0 +1,14 @@
+description "lsyncd file syncronizer"
+
+start on (starting network-interface
+ or starting network-manager
+ or starting networking)
+
+stop on runlevel [!2345]
+
+expect fork
+
+respawn
+respawn limit 10 5
+
+exec /usr/local/bin/lsyncd /etc/lsyncd.lua

@@ -1,0 +1,32 @@
+----
+-- User configuration file for lsyncd.
+--
+-- Simple example for default rsync, but executing moves through on the target.
+--
+-- For more examples, see /usr/share/doc/lsyncd*/examples/
+-- 
+-- sync{default.rsyncssh, source="/var/www/html", host="localhost", targetdir="/tmp/htmlcopy/"}
+
+settings {
+	logfile = "<%= @logfile %>",
+	statusFile = "<%= @statusfile%>",
+	statusInterval = <%= @statusinterval %>
+}
+
+servers = {
+	"<%= @targethost1 %>",
+}
+
+for _, server in ipairs(servers) do
+sync {
+	default.rsync,
+	source="<%= @source1 %>",
+	target=server..":<%= @targetdir1 %>", 
+	rsync = {
+		compress = "<%= @compress1 %>",
+        	archive = "<%= @archive1 %>",
+        	verbose = "<%= @verbose1 %>",
+        	rsh = "<%= @rsh1 %> "
+	}
+}
+end

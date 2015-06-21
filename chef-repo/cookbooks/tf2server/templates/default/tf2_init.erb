@@ -1,0 +1,26 @@
+description     "TF2 Server"
+author          "TF2 Wiki"
+
+start on runlevel [2345]
+stop on starting rc RUNLEVEL=[016]
+
+pre-start script
+    cd /home/tf2server/hlserver/tf2
+    su -c "screen -dmS tf2 ./srcds_run -game tf +sv_pure 1 +maxplayers 32 +ip 0.0.0.0 +map mvm_decoy -autoupdate -steam_dir /home/tf2server/hlserver/ -steamcmd_script /home/tf2server/hlserver/tf2_ds.txt +sv_shutdown_timeout_minutes 5" tf2server
+    while [ -z "$(pidof srcds_linux)" ]; do
+        sleep 1
+    done
+end script
+
+script
+    while [ -n "$(pidof srcds_linux)" ]; do
+        sleep 1
+    done
+end script
+
+post-stop script
+    fuser -k /home/tf2server/hlserver/tf2/srcds_run
+    while [ -n "$(pidof srcds_linux)" ]; do
+        sleep 1
+    done
+end script
