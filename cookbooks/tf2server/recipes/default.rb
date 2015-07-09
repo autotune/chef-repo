@@ -60,8 +60,8 @@ end
 # create system user dir
 
 directory "/home/tf2server" do
-  owner "root"
-  group "root"
+  owner "tf2server"
+  group "tf2server"
   mode 00775
   action :create
 end
