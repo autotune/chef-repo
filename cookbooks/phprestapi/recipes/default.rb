@@ -19,9 +19,23 @@ when "rhel"
 
 # install required packages 
 # exact versions in /var/log/yum.log
-  yum_package 'package_requirements' do
-  package_name ['wget', 'git', 'php', 'yum-plugin-replace' ] 
-    version ['1.12-5.el6_6.1', '1.7.1-3.el6_4.1', '5.3.3-46.el6_6.', '0.2.7-1.ius.centos6']
+  yum_package 'system_packages' do
+    package_name ['wget', 'git' ]
+    version ['1.12-5.el6_6.1', '1.7.1-3.el6_4.1']
+    flush_cache[ :before ]
+    action :install
+end
+
+#   yum_package 'database_packages' do
+#   package_name ['mysql55-server' ]
+#     version ['5.3.3-46.el6_6']
+#     flush_cache[ :before ]
+#     action :install
+# end
+
+  yum_package 'web_packages' do
+  package_name ['php' ] 
+    version ['5.3.3-46.el6_6']
     flush_cache[ :before ] 
     action :install
 end
