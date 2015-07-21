@@ -1,5 +1,5 @@
- Cookbook
-=================
+PHP-SAMPLE-API Cookbook
+=======================
 
 URL
 --
