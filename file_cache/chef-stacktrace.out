@@ -1,6 +1,12 @@
-Generated at 2015-07-20 17:32:07 -0600
-Chef::Exceptions::Package: yum_package[web_packages] (phprestapi::default line 22) had an error: Chef::Exceptions::Package: Version ["5.3.3-46.el6_6."] of ["php"] not found. Did you specify both version and release? (version-release, e.g. 1.84-10.fc6)
-/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1238:in `install_remote_package'
+Generated at 2015-07-21 02:51:16 -0600
+Chef::Exceptions::Exec: yum_package[database_packages] (phprestapi::default line 37) had an error: Chef::Exceptions::Exec: yum -d0 -e0 -y install mysql55-server-5.5.44-2.ius.centos6 returned 1:
+STDOUT:  You could try using --skip-broken to work around the problem
+ You could try running: rpm -Va --nofiles --nodigest
+
+STDERR: Error: mysql55-libs conflicts with mysql-libs-5.1.73-5.el6_6.x86_64
+
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1055:in `yum_command'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1236:in `install_remote_package'
 /opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1247:in `install_package'
 /opt/chef/embedded/apps/chef/lib/chef/provider/package.rb:93:in `block in action_install'
 /opt/chef/embedded/apps/chef/lib/chef/mixin/why_run.rb:52:in `call'
