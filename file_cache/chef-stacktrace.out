@@ -1,19 +1,22 @@
-Generated at 2015-07-21 02:51:16 -0600
-Chef::Exceptions::Exec: yum_package[database_packages] (phprestapi::default line 37) had an error: Chef::Exceptions::Exec: yum -d0 -e0 -y install mysql55-server-5.5.44-2.ius.centos6 returned 1:
-STDOUT:  You could try using --skip-broken to work around the problem
- You could try running: rpm -Va --nofiles --nodigest
-
-STDERR: Error: mysql55-libs conflicts with mysql-libs-5.1.73-5.el6_6.x86_64
-
-/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1055:in `yum_command'
-/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1236:in `install_remote_package'
-/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1247:in `install_package'
-/opt/chef/embedded/apps/chef/lib/chef/provider/package.rb:93:in `block in action_install'
-/opt/chef/embedded/apps/chef/lib/chef/mixin/why_run.rb:52:in `call'
-/opt/chef/embedded/apps/chef/lib/chef/mixin/why_run.rb:52:in `add_action'
-/opt/chef/embedded/apps/chef/lib/chef/provider.rb:175:in `converge_by'
-/opt/chef/embedded/apps/chef/lib/chef/provider/package.rb:92:in `action_install'
-/opt/chef/embedded/apps/chef/lib/chef/provider.rb:140:in `run_action'
+Generated at 2015-07-21 05:57:29 -0600
+SystemExit: yum_package[system_packages] (phprestapi::default line 27) had an error: SystemExit: exit
+/opt/chef/embedded/apps/chef/lib/chef/application.rb:404:in `exit'
+/opt/chef/embedded/apps/chef/lib/chef/application.rb:404:in `fatal!'
+/opt/chef/embedded/apps/chef/lib/chef/application.rb:65:in `block in setup_signal_handlers'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:553:in `call'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:553:in `block in push'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:548:in `each'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:548:in `push'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:586:in `<<'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:761:in `block in refresh'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:718:in `each_line'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:718:in `refresh'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:834:in `package_available?'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1092:in `block in load_current_resource'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1091:in `each'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1091:in `each_with_index'
+/opt/chef/embedded/apps/chef/lib/chef/provider/package/yum.rb:1091:in `load_current_resource'
+/opt/chef/embedded/apps/chef/lib/chef/provider.rb:123:in `run_action'
 /opt/chef/embedded/apps/chef/lib/chef/resource.rb:584:in `run_action'
 /opt/chef/embedded/apps/chef/lib/chef/runner.rb:49:in `run_action'
 /opt/chef/embedded/apps/chef/lib/chef/runner.rb:81:in `block (2 levels) in converge'
