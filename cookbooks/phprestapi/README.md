@@ -1,6 +1,10 @@
-New Relic Cookbook
+ Cookbook
 =================
 
+URL
+--
+
+https://github.com/paypal/rest­api­sample­app­php/
 
 Requirements
 ------------
@@ -24,7 +28,7 @@ This recipe has been tested through chef-solo and snapshot creation/regression t
     exit
 
 ToDo
----
+----
 
 Dependency Management => Berkshelf 
 
@@ -32,6 +36,12 @@ Cookbook Cleanup => implement database cookbook and replace one-liners
 
 Testing => Implement unit testing with ChefSpec and state testing with Serverspec 
  
+
+Additional Notes
+----------------
+
+This cookbook creates a dedicated user under MySQL and runs apache under standard apache user. 
+Sudoer is required to install mysql and httpd packages. 
 
 #### phprestapi::default
 
