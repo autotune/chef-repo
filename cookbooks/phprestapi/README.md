@@ -9,6 +9,12 @@ https://github.com/paypal/rest­api­sample­app­php/
 Requirements
 ------------
 
+    sudo -s
+    curl -L https://www.opscode.com/chef/install.sh | bash
+    alias chefrun='chef-solo -c /root/chef-repo/solo.rb -j /root/chef-repo/web.json'
+    chefrun
+    exit
+
 Attributes
 ----------
 default['phpsampleapi']['mysql']['db'] = "phpsampleapi"
@@ -21,11 +27,7 @@ Usage
 
 This recipe has been tested through chef-solo and snapshot creation/regression through VirtualBox. 
 
-    sudo -s
-    curl -L https://www.opscode.com/chef/install.sh | bash
-    alias chefrun='chef-solo -c /root/chef-repo/solo.rb -j /root/chef-repo/web.json'
-    chefrun
-    exit
+Nothing more needs to be done other than specifying which attributes are preferred and running recipe. 
 
 ToDo
 ----
