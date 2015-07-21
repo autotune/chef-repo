@@ -27,7 +27,7 @@ Cookbook Cleanup => implement database cookbook and replace one-liners
 Testing => Implement unit testing with ChefSpec and state testing with Serverspec 
  
 
-#### phpsampleapi::default
+#### phprestapi::default
 
 License and Authors
 -------------------
