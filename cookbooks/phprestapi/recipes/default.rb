@@ -173,5 +173,11 @@ end
   command "sed 's/'MYSQL_DB\\'\\,\\ \\'paypal_pizza_app'/\\'MYSQL_DB,\\ \\'#{ node[:phpsampleapi][:mysql][:db]}'/' -i /var/www/html/app/bootstrap.php"
   end
 
+  # cleanup tmp password
+  execute "delete-tmp-passwd" do
+  command "rm -f /tmp/dbuserpw.txt"
+  end
+
+
 # final end
 end
