@@ -1,1 +1,2 @@
-default['newrelic']['license'] = "CHANGE_ME"
+default['phpsampleapi']['mysql']['db'] = "phpsampleapi"
+default['phpsampleapi']['mysql']['user'] = "apidbdev"
