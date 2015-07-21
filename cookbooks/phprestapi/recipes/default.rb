@@ -5,9 +5,20 @@
 case node["platform_family"]
 when "rhel"
 
-############################
-# INSTALL REQUERED PACKAGES#
-############################ 
+######################
+# ADD DEDICATED USER #
+######################
+
+user "#{node[:phpsampleapi][:apache][:user]}" do
+  supports :manage_home => true
+  comment 'API User'
+  home "/home/#{node[:phpsampleapi][:apache][:user]}"
+  shell '/bin/bash'
+end
+
+#############################
+# INSTALL REQUERED PACKAGES #
+############################# 
 
 # install epel repo
   rpm_package "epel-release-6-8.noarch.rpm" do
@@ -110,6 +121,12 @@ end
   # extract files directly to /var/www/html   
   execute "extract-phprestapi" do
   command "tar xvf #{Chef::Config[:file_cache_path] + '/rest-api-sample-app-php.tar.gz' + " -C /var/www/html --strip-components 1"}"
+  action :run
+  end 
+
+  # extract change user permissions for /var/www/html   
+  execute "change-user-permissions" do
+  command "chown -R #{node[:phpsampleapi][:apache][:user]}:#{node[:phpsampleapi][:apache][:user]} /var/www/html"
   action :run
   end 
 
