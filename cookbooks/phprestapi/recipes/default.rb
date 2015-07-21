@@ -81,6 +81,10 @@ end
     command 'echo "$(iptables -L INPUT --line-numbers | grep \'REJECT\' | awk \'{print $1}\')" > /tmp/iprule.txt'
   end
 
+   execute "drop-port-ssh" do
+   command "sed '/-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT'/d -i /etc/sysconfig/iptables"
+   end
+
   execute 'allow-10.0.0.0-ssh' do
     # http://unix.stackexchange.com/questions/121161/how-to-insert-text-after-a-certain-string-in-a-file => solution for before match located here as well. 
     command 'sed \'/INPUT \-j REJECT/i -A INPUT -s 10.0.0.0/8 -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -m comment --comment \"SSH from 10.0.0.0/8"\' -i /etc/sysconfig/iptables'
