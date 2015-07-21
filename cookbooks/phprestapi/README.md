@@ -8,7 +8,7 @@ https://github.com/paypal/rest­api­sample­app­php/
 
 Requirements
 ------------
-
+Distro: CentOS 6.5 (should work across CentOS 6.x)
     sudo -s
     curl -L https://www.opscode.com/chef/install.sh | bash
     alias chefrun='chef-solo -c /root/chef-repo/solo.rb -j /root/chef-repo/web.json'
