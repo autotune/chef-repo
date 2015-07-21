@@ -7,11 +7,24 @@ Requirements
 
 Attributes
 ----------
+default['phpsampleapi']['mysql']['db'] = "phpsampleapi"
+default['phpsampleapi']['mysql']['user'] = "apidbdev"
+
+
 Usage
 -----
-#### newrelic::default
+This recipe has been tested through chef-solo and snapshot creation/regression through VirtualBox. 
+
+ToDo
+---
+Dependency Management => Berkshelf 
+Cookbook Cleanup => implement database cookbook and replace one-liners
+Testing => Implement unit testing with ChefSpec and state testing with Serverspec 
+ 
+
+#### phpsampleapi::default
 
 License and Authors
 -------------------
 Authors: Brian Adams 
-License: GPLV3 (http://choosealicense.com/licenses/gpl-v3)
+License: MIT 
