@@ -20,6 +20,11 @@ end
 # INSTALL REQUERED PACKAGES #
 ############################# 
 
+  # flush the cache
+  execute "flush-yum-cache" do
+  command "yum clean all"
+  end
+
 # install epel repo
   rpm_package "epel-release-6-8.noarch.rpm" do
     source "#{Chef::Config[:file_cache_path]}/epel-release-6-8.noarch.rpm"
