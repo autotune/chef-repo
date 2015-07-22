@@ -42,6 +42,11 @@ end
     action :install
 end
 
+  # flush the cache
+  execute "flush-yum-cache" do
+  command "yum clean all"
+  end
+
   # replace mysql-libs with mysql55-libs
   execute "remove-mysql-libs-nodeps" do
   command "rpm -e mysql-libs --nodeps"
@@ -76,16 +81,9 @@ end
 
 # add iptables rules with lokkit 
 # this assumes a fresh install 
+# this also assumes reject by default 
   execute 'backup-iptables' do
     command 'cp /etc/sysconfig/iptables /etc/sysconfig/iptables.bac'
-  end
-  
-  execute 'allow-port-80' do
-    command 'lokkit -p 80:tcp'
-  end
-  
-  execute 'allow-port-443' do
-    command 'lokkit -p 443:tcp'
   end
 
   execute 'find-reject-rule' do
@@ -96,8 +94,16 @@ end
    command "sed '/-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT'/d -i /etc/sysconfig/iptables"
    end
 
-  execute 'allow-10.0.0.0-ssh' do
+  execute 'allow-all-80' do
     # http://unix.stackexchange.com/questions/121161/how-to-insert-text-after-a-certain-string-in-a-file => solution for before match located here as well. 
+    command 'sed \'/INPUT \-j REJECT/i -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -m comment --comment \"ALL from 80"\' -i /etc/sysconfig/iptables'
+  end
+
+  execute 'allow-all-443' do
+    command 'sed \'/INPUT \-j REJECT/i -A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT -m comment --comment \"ALL from 443"\' -i /etc/sysconfig/iptables'
+  end
+
+  execute 'allow-10.0.0.0-ssh' do
     command 'sed \'/INPUT \-j REJECT/i -A INPUT -s 10.0.0.0/8 -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT -m comment --comment \"SSH from 10.0.0.0/8"\' -i /etc/sysconfig/iptables'
   end
 
