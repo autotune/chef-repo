@@ -63,8 +63,8 @@ end
   end
 
   yum_package 'web_packages' do
-  package_name ['php' ] 
-    version ['5.3.3-46.el6_6']
+  package_name ['php','php-mysql' ] 
+    version ['5.3.3-46.el6_6', '5.3.3-46.el6_6']
     flush_cache[ :before ] 
     action :install
 end
@@ -131,10 +131,30 @@ end
   end 
 
   # extract change user permissions for /var/www/html   
-  execute "change-user-permissions" do
+  execute "change-ownership-permissions" do
   command "chown -R #{node[:phpsampleapi][:apache][:user]}:#{node[:phpsampleapi][:apache][:user]} /var/www/html"
   action :run
   end 
+  
+  # make user default group   
+  execute "change-group-sticky" do
+  command "chmod -R g+s /var/www/html"
+  action :run
+  end 
+
+  # install composer
+  execute "install-composer" do
+  command "curl -sS https://getcomposer.org/installer | php -- --install-dir=/var/www/html"
+  end
+
+  execute "update-composer" do 
+  cwd "/var/www/html" 
+  command "php composer.phar update"
+  end 
+  
+  execute "change-group-permissions" do
+  command "chmod -R 775 /var/www/html"
+  end
 
 #####################
 # CONFIGURE DATABASE#
