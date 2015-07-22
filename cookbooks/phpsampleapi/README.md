@@ -8,7 +8,7 @@ URL
 
 Requirements
 ------------
-Distro: CentOS/RHEL 6.5 (should work across CentOS/RHEL 6.x)
+Distro: CentOS/RHEL 6.5 and 6.6 (should work across CentOS/RHEL 6.x)
 
 IPTables: This assumes the reject rule already exists by default, as it does
           even in a minimal installation. 
