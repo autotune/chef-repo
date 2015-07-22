@@ -10,8 +10,11 @@ Requirements
 ------------
 Distro: CentOS/RHEL 6.5 (should work across CentOS/RHEL 6.x)
 
+Notes: web.json currently has phpsampleapi as run recipe. Replace as needed. 
+
     sudo -s
     yum install git -y
+    git clone https://github.com/autotune/chef-repo.git
     curl -L https://www.opscode.com/chef/install.sh | bash
     alias chefrun='chef-solo -c /root/chef-repo/solo.rb -j /root/chef-repo/web.json'
     chefrun
