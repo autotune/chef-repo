@@ -1,4 +1,4 @@
-name             'phprestapi'
+name             'phpsampleapi'
 maintainer       'Autotune'
 maintainer_email 'b@contrasting.org'
 license          'MIT: All rights reserved'
