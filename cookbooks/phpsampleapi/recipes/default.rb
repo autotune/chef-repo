@@ -79,7 +79,6 @@ end
   action [ :enable, :start ]
 end
 
-# add iptables rules with lokkit 
 # this assumes a fresh install 
 # this also assumes reject by default 
   execute 'backup-iptables' do
@@ -89,9 +88,11 @@ end
   execute 'find-reject-rule' do
     command 'echo "$(iptables -L INPUT --line-numbers | grep \'REJECT\' | awk \'{print $1}\')" > /tmp/iprule.txt'
   end
-
+   # some images have weird options for rules so should be 
+   # as generic as possible. e.g. Rackspace CentOD 6 vs 
+   # standard CentOS 6 minimal ISO have diff ssh rules. 
    execute "drop-port-ssh" do
-   command "sed '/-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT'/d -i /etc/sysconfig/iptables"
+   command "sed '/--dport 22 -j ACCEPT'/d -i /etc/sysconfig/iptables"
    end
 
   execute 'allow-all-80' do
