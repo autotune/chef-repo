@@ -4,7 +4,7 @@ PHP-SAMPLE-API Cookbook
 URL
 --
 
-    https://github.com/paypal/rest\­api\­sample\­app\­php/
+    https://github.com/paypal/rest-api-sample-app-php/
 
 Requirements
 ------------
