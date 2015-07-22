@@ -26,6 +26,8 @@ default['phpsampleapi']['mysql']['db'] = "phpsampleapi"
 
 default['phpsampleapi']['mysql']['user'] = "apidbdev"
 
+default['phpsampleapi']['apache']['user'] = "apidbprod"
+
 
 Usage
 -----
