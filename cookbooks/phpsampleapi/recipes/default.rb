@@ -1,4 +1,4 @@
-# Cookbook Name: New Relic 
+# Cookbook Name: phpsampleapi 
 # Recipe:: default
 
 
