@@ -21,7 +21,7 @@ end
 ############################# 
 
   # flush the cache
-  execute "flush-yum-cache" do
+  execute "flush-yum-cache-epel" do
   command "yum clean all"
   end
 
@@ -48,7 +48,7 @@ end
 end
 
   # flush the cache
-  execute "flush-yum-cache" do
+  execute "flush-yum-cache-mysqldeps" do
   command "yum clean all"
   end
 
