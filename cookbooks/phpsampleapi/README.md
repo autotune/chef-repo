@@ -47,7 +47,7 @@ Dependency Management => Berkshelf
 Cookbook Cleanup => implement database cookbook and replace one-liners
 
 Testing => Implement unit testing with ChefSpec and state testing with Serverspec 
- 
+        => Add more only_if checks.  
 
 Additional Notes
 ----------------
