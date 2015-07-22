@@ -50,7 +50,7 @@ Additional Notes
 This cookbook creates a dedicated user under MySQL and runs apache under standard apache user. 
 Sudoer is required to install mysql and httpd packages. 
 
-#### phprestapi::default
+#### phpsampleapi::default
 
 License and Authors
 -------------------
