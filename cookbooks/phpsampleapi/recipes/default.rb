@@ -205,19 +205,18 @@ end
   command "mysql -e \"use phpsampleapi; GRANT ALL ON #{ node[:phpsampleapi][:mysql][:db]}.* TO #{ node[:phpsampleapi][:mysql][:user]}@localhost IDENTIFIED BY \\\"$(cat /tmp/dbuserpw.txt)\\\"\""
   end
 
-  # replace bootstrap user
   execute "replace-boostrap-user" do
-  command "sed 's/'MYSQL_USERNAME\\'\\,\\ \\'root'/\\'MYSQL_USERNAME,\\ \\'#{ node[:phpsampleapi][:mysql][:user]}'/' -i /var/www/html/app/bootstrap.php"
+  command "sed 's/'MYSQL_USERNAME\\'\\,\\ \\'root'/\\'MYSQL_USERNAME\\',\\ \\'#{ node[:phpsampleapi][:mysql][:user]}'/' -i /var/www/html/app/bootstrap.php"
   end
 
   # replace bootstrap user pass
   execute "replace-boostrap-user-pw" do
-  command "sed 's/'MYSQL_PASSWORD\\'\\,\\ \\'root'/\\'MYSQL_PASSWORD,\\ \\'$(cat /tmp/dbuserpw.txt)'/' -i /var/www/html/app/bootstrap.php"
+  command "sed 's/'MYSQL_PASSWORD\\'\\,\\ \\'root'/\\'MYSQL_PASSWORD\\',\\ \\'$(cat /tmp/dbuserpw.txt)'/' -i /var/www/html/app/bootstrap.php"
   end
 
   # replace bootstrap db name
   execute "replace-boostrap-db-name" do
-  command "sed 's/'MYSQL_DB\\'\\,\\ \\'paypal_pizza_app'/\\'MYSQL_DB,\\ \\'#{ node[:phpsampleapi][:mysql][:db]}'/' -i /var/www/html/app/bootstrap.php"
+  command "sed 's/'MYSQL_DB\\'\\,\\ \\'paypal_pizza_app'/\\'MYSQL_DB\\',\\ \\'#{ node[:phpsampleapi][:mysql][:db]}'/' -i /var/www/html/app/bootstrap.php"
   end
 
   # cleanup tmp password
